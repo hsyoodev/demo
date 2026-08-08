@@ -1,3 +1,12 @@
+---
+name: Issue Template
+about: 새로운 기능 추가, 버그 수정 등에 대한 이슈 템플릿
+title: ex. 프로젝트 개발환경 설정
+labels: enhancement
+assignees: hsyoodev
+
+---
+
 <!-- PR이 왜 필요한지, 어떤 작업을 수행했는지 간단히 작성 -->
 
 ## 📝 개요
