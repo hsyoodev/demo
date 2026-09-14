@@ -3,6 +3,7 @@ package io.github.demo.config
 import io.swagger.v3.oas.models.OpenAPI
 import io.swagger.v3.oas.models.info.Info
 import io.swagger.v3.oas.models.servers.Server
+import org.springdoc.core.models.GroupedOpenApi
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.Configuration
 class OpenAPIConfig {
 
     @Bean
-    fun openAPI(): OpenAPI {
+    fun openApi(): OpenAPI {
         return OpenAPI()
             .info(Info()
                 .title("개발자 유구리 API 목록")
@@ -22,6 +23,22 @@ class OpenAPIConfig {
                     .url("http://localhost:8080")
                     .description("개발용 서버")
             ))
+    }
+
+    @Bean
+    fun groupedOpenApiV1(): GroupedOpenApi {
+        return GroupedOpenApi.builder()
+            .group("v1")
+            .pathsToMatch("/api/v1/**")
+            .build()
+    }
+
+    @Bean
+    fun groupedOpenApiV2(): GroupedOpenApi {
+        return GroupedOpenApi.builder()
+            .group("v2")
+            .pathsToMatch("/api/v2/**")
+            .build()
     }
 
 }
